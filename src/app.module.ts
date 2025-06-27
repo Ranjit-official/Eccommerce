@@ -1,26 +1,21 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserController } from './user/user.controller';
-import { UserService } from './user/user.service';
-import { AuthService } from './auth/auth.service';
-import { BannerService } from './banner/banner.service';
-import { BrandService } from './brand/brand.service';
-import { CategoryService } from './category/category.service';
-import { ChatService } from './chat/chat.service';
-import { OrderService } from './order/order.service';
-import { ProductService } from './product/product.service';
-import { ProductController } from './product/product.controller';
-import { OrderController } from './order/order.controller';
-import { ChatController } from './chat/chat.controller';
-import { CategoryController } from './category/category.controller';
-import { BrandController } from './brand/brand.controller';
-import { BannerController } from './banner/banner.controller';
-import { AuthController } from './auth/auth.controller';
+import { FallbackModule } from './fallback/fallback.module';
+import { AuthModule } from './auth/auth.module';
+import { BannerModule } from './banner/banner.module';
+import { BrandModule } from './brand/brand.module';
+import { CategoryModule } from './category/category.module';
+import { ChatModule } from './chat/chat.module';
+import { OrderModule } from './order/order.module';
+import { ProductModule } from './product/product.module';
+import { UserModule } from './user/user.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { EmailService } from './email/email.service';
 
 @Module({
-  imports: [],
-  controllers: [AppController, UserController, ProductController, OrderController, ChatController, CategoryController, BrandController, BannerController, AuthController],
-  providers: [AppService, UserService, AuthService, BannerService, BrandService, CategoryService, ChatService, OrderService, ProductService],
+  imports: [ AuthModule, BannerModule, BrandModule, CategoryModule, ChatModule, OrderModule, ProductModule, UserModule, CloudinaryModule,],
+  controllers: [AppController,],
+  providers: [AppService, EmailService,],
 })
 export class AppModule {}
