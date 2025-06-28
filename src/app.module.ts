@@ -12,9 +12,10 @@ import { ProductModule } from './product/product.module';
 import { UserModule } from './user/user.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { EmailService } from './email/email.service';
+import { MongodbModule } from './mongodb/mongodb.module';
 
 @Module({
-  imports: [ AuthModule, BannerModule, BrandModule, CategoryModule, ChatModule, OrderModule, ProductModule, UserModule, CloudinaryModule,],
+  imports: [ AuthModule, BannerModule, BrandModule, CategoryModule, ChatModule, OrderModule, ProductModule, UserModule, CloudinaryModule, MongodbModule,],
   controllers: [AppController,],
   providers: [AppService, EmailService,],
 })
